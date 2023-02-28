@@ -9,8 +9,20 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react"],
+  plugins: ['prettier', '@typescript-eslint',"react", "react-hooks"],
   rules: {
-    "semi": ["warn", "always"],
+    'no-underscore-dangle': [2, {allow: ['_someString', '__someString','__REDUX_DEVTOOLS_EXTENSION__']}],
+    // "no-underscore-dangle": 'off',
+    'no-console': ['warn'],
+    '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
   },
+  settings: {
+    'import/resolver': {
+      'node': {
+        'extensions': ['.js','.jsx','.ts','.tsx']
+      }
+    }
+  }
 };
